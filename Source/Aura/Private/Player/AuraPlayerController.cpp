@@ -3,6 +3,7 @@
 
 #include "Player/AuraPlayerController.h"
 #include "InputCoreTypes.h"
+#include <EnhancedInputSubsystems.h>
 
 
 AAuraPlayerController::AAuraPlayerController()
