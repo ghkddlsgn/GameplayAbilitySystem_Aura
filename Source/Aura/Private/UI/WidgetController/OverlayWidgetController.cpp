@@ -2,5 +2,12 @@
 
 
 #include "UI/WidgetController/OverlayWidgetController.h"
-#include "UI/WidgetController/AuraWidgetController.h"
-#include "UI/Widget/AuraUserWidget.h"
+
+UOverlayWidgetController::UOverlayWidgetController()
+{
+}
+
+void UOverlayWidgetController::BroadcastInitialValues()
+{
+	
+}

@@ -6,11 +6,12 @@
 #include "UI/WidgetController/AuraWidgetController.h"
 #include "OverlayWidgetController.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChangedSignature,float, NewHealth);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxHealthChangedSignature, float, NewMaxHealth);
+
 /**
  * 
  */
-
- class UAuraUserWidget;
 
 UCLASS()
 class AURA_API UOverlayWidgetController : public UAuraWidgetController
@@ -18,15 +19,13 @@ class AURA_API UOverlayWidgetController : public UAuraWidgetController
 	GENERATED_BODY()
 
 public:
-	UPROPERTY()
-	TObjectPtr<UAuraUserWidget> OverlayWidget;
+	UOverlayWidgetController();
 
-	UOverlayWidgetController* GetOverlayWidgetController();
+	virtual void BroadcastInitialValues() override;
 
-protected:
+	UPROPERTY(BlueprintAssignable)
+	FOnHealthChangedSignature OnHealthChanged;
 
-private:
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<UAuraUserWidget> OverlayWidgetClass;
-	
+	UPROPERTY(BlueprintAssignable)
+	FOnMaxHealthChangedSignature OnMaxHealthChanged;
 };
