@@ -1,9 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Druid Mechanics
 
 
-#include "Ui/WidgetController/AuraWidgetController.h"
+#include "UI/WidgetController/AuraWidgetController.h"
 
-void UAuraWidgetController::SetWidgetControllerParams(FWidgetControllerParams WCParams)
+void UAuraWidgetController::SetWidgetControllerParams(const FWidgetControllerParams& WCParams)
 {
 	PlayerController = WCParams.PlayerController;
 	PlayerState = WCParams.PlayerState;
