@@ -56,7 +56,7 @@ protected:
 	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-	TEnumAsByte<EEffectApplyPolicy> DurationEffectApplyPolicy = EEffectApplyPolicy::DoNotApply;;
+	TEnumAsByte<EEffectApplyPolicy> DurationEffectApplyPolicy = EEffectApplyPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
