@@ -28,7 +28,10 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
 	[](const FGameplayTagContainer& AssetTags)
 		{
-			
+			for (const FGameplayTag& Tag : AssetTags)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, Tag.ToString());
+			}
 		}
 	);
 }
