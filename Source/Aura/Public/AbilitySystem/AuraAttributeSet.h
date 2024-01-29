@@ -13,48 +13,43 @@
 	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
-/**
- * 
- */
-
- class AController;
- class ACharacter;
- struct FGameplayEffectContextHandle;
-
-
-USTRUCT(BlueprintType)
+USTRUCT()
 struct FEffectProperties
 {
 	GENERATED_BODY()
 
+	FEffectProperties(){}
+
 	FGameplayEffectContextHandle EffectContextHandle;
 
 	UPROPERTY()
-	UAbilitySystemComponent* SourceASC;
+	UAbilitySystemComponent* SourceASC = nullptr;
 
 	UPROPERTY()
-	AActor * SourceAvatarActor;
+	AActor* SourceAvatarActor = nullptr;
 
 	UPROPERTY()
-	AController * SourceController;
+	AController* SourceController = nullptr;
 
 	UPROPERTY()
-	ACharacter * SourceCharacter;
+	ACharacter* SourceCharacter = nullptr;
 
 	UPROPERTY()
-	UAbilitySystemComponent* TargetASC;
-	
-	UPROPERTY()
-	AActor * TargetAvatarActor;
+	UAbilitySystemComponent* TargetASC = nullptr;
 
 	UPROPERTY()
-	AController * TargetController;
+	AActor* TargetAvatarActor = nullptr;
 
 	UPROPERTY()
-	ACharacter * TargetCharacter;
+	AController* TargetController = nullptr;
+
+	UPROPERTY()
+	ACharacter* TargetCharacter = nullptr;
 };
 
-
+/**
+ * 
+ */
 UCLASS()
 class AURA_API UAuraAttributeSet : public UAttributeSet
 {
@@ -67,8 +62,8 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 	/*
-	primary attributes
-	*/
+	 * Primary Attributes
+	 */
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Strength, Category = "Primary Attributes")
 	FGameplayAttributeData Strength;
@@ -82,15 +77,14 @@ public:
 	FGameplayAttributeData Resilience;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Resilience);
 
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Resilience, Category = "Primary Attributes")
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Vigor, Category = "Primary Attributes")
 	FGameplayAttributeData Vigor;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Vigor);
 
-
 	/*
-	vital Attributes
-	*/
-	
+	 * Vital Attributes
+	 */
+
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Health, Category = "Vital Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
@@ -132,6 +126,7 @@ public:
 	void OnRep_Vigor(const FGameplayAttributeData& OldVigor) const;
 
 private:
-	
-	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props);
+
+	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
 };
+

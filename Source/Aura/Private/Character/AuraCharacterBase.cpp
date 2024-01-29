@@ -26,7 +26,6 @@ void AAuraCharacterBase::BeginPlay()
 
 void AAuraCharacterBase::InitAbilityActorInfo()
 {
-
 }
 
 void AAuraCharacterBase::InitializePrimaryAttributes() const

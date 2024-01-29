@@ -2,8 +2,9 @@
 
 
 #include "Character/AuraCharacter.h"
-#include "AbilitySystem/AuraAbilitySystemComponent.h"
+
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Player/AuraPlayerController.h"
 #include "Player/AuraPlayerState.h"
@@ -53,5 +54,5 @@ void AAuraCharacter::InitAbilityActorInfo()
 			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
 		}
 	}
-	InitAbilityActorInfo();
+	InitializePrimaryAttributes();
 }
