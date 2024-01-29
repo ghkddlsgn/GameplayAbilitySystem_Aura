@@ -18,7 +18,7 @@ struct FEffectProperties
 {
 	GENERATED_BODY()
 
-	FEffectProperties() {}
+	FEffectProperties(){}
 
 	FGameplayEffectContextHandle EffectContextHandle;
 
@@ -48,7 +48,7 @@ struct FEffectProperties
 };
 
 /**
- *
+ * 
  */
 UCLASS()
 class AURA_API UAuraAttributeSet : public UAttributeSet
@@ -123,7 +123,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Vital Attributes")
 	FGameplayAttributeData MaxMana;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);	
 
 	/*
 	 * Vital Attributes
@@ -132,7 +132,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Health, Category = "Vital Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
-
+	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category = "Vital Attributes")
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana);
@@ -189,3 +189,4 @@ private:
 
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
 };
+
