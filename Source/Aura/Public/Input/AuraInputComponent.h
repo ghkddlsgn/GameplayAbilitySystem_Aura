@@ -16,14 +16,12 @@ class AURA_API UAuraInputComponent : public UEnhancedInputComponent
 	GENERATED_BODY()
 
 public:
-	
-	template<class Userclass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
-	void BindAbilityActions(const UAuraInputConfig* InputConfig, Userclass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc);
-	
+	template<class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
+	void BindAbilityActions(const UAuraInputConfig* InputConfig, UserClass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc);
 };
 
-template<class Userclass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
-inline void UAuraInputComponent::BindAbilityActions(const UAuraInputConfig* InputConfig, Userclass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc)
+template <class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
+void UAuraInputComponent::BindAbilityActions(const UAuraInputConfig* InputConfig, UserClass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, HeldFuncType HeldFunc)
 {
 	check(InputConfig);
 
@@ -43,7 +41,7 @@ inline void UAuraInputComponent::BindAbilityActions(const UAuraInputConfig* Inpu
 
 			if (HeldFunc)
 			{
-				BindAction(Action.InputAction,ETriggerEvent::Triggered, Object, HeldFunc, Action.InputTag);
+				BindAction(Action.InputAction, ETriggerEvent::Triggered, Object, HeldFunc, Action.InputTag);
 			}
 		}
 	}
