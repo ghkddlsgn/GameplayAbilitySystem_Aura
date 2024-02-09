@@ -11,7 +11,7 @@ void UAuraAbilitySystemComponent::AbilityActorInfoSet()
 	
 }
 
-void UAuraAbilitySystemComponent::AddCharacterAilities(const TArray<TSubclassOf<UGameplayAbility>>& StartUpAbilities)
+void UAuraAbilitySystemComponent::AddCharacterAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartUpAbilities)
 {
 	for (const TSubclassOf<UGameplayAbility> AbilityClass : StartUpAbilities)
 	{
@@ -33,6 +33,7 @@ void UAuraAbilitySystemComponent::AbilityInputTagHeld(const FGameplayTag& InputT
 		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
 		{
 			if (AbilitySpec.IsActive())
+
 			{
 				TryActivateAbility(AbilitySpec.Handle);
 			}
