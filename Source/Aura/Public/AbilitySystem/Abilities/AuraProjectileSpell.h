@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystem/Abilities/AuraGameplayAbility.h"
+#include "Interaction/CombatInterface.h"
 #include "AuraProjectileSpell.generated.h"
 
 class AAuraProjectile;
@@ -11,7 +12,7 @@ class AAuraProjectile;
  * 
  */
 UCLASS()
-class AURA_API UAuraProjectileSpell : public UAuraGameplayAbility
+class AURA_API UAuraProjectileSpell : public UAuraGameplayAbility, public ICombatInterface
 {
 	GENERATED_BODY()
 

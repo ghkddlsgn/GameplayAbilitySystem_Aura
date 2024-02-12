@@ -28,6 +28,7 @@ void AAuraPlayerController::PlayerTick(float DeltaTime)
 
 void AAuraPlayerController::AutoRun()
 {
+	
 	if (!bAutoRunning) return;
 	if (APawn* ControlledPawn = GetPawn())
 	{
